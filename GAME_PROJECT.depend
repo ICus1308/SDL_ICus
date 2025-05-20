@@ -1,0 +1,203 @@
+# depslib dependency file v1.0
+1747678398 source:e:\ltnc2\game_project\main.cpp
+	<iostream>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	"graphics.h"
+	"defs.h"
+	"handle.h"
+	"entities.h"
+	"game.h"
+	"menu.h"
+	"coin.h"
+	"shop.h"
+
+1747590275 e:\ltnc2\game_project\graphics.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"defs.h"
+	<bits/stdc++.h>
+	"SDL_ttf.h"
+
+1747756637 e:\ltnc2\game_project\defs.h
+
+1747556857 e:\ltnc2\game_project\entities.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	<bits/stdc++.h>
+
+1747564614 e:\ltnc2\game_project\handle.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"entities.h"
+	<bits/stdc++.h>
+	"variable.h"
+
+1747681309 e:\ltnc2\game_project\game.h
+	"SDL2/SDL.h"
+	<bits/stdc++.h>
+	"SDL2/SDL_image.h"
+	"entities.h"
+	"defs.h"
+	"variable.h"
+	"coin.h"
+	"shockwave.h"
+	"shop.h"
+	"highscore.h"
+
+1747669655 e:\ltnc2\game_project\variable.h
+	"graphics.h"
+	"defs.h"
+	<bits/stdc++.h>
+	"SDL2/SDL.h"
+	"SDL_ttf.h"
+	"SDL2/SDL_image.h"
+	"entities.h"
+	"shockwave.h"
+	"luckybox.h"
+
+1747756759 e:\ltnc2\game_project\menu.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"defs.h"
+	<bits/stdc++.h>
+	"SDL_ttf.h"
+	"variable.h"
+	"shop.h"
+	"highscore.h"
+	"tutorial.h"
+
+1747394672 e:\ltnc2\game_project\shockwave.h
+	"graphics.h"
+	"entities.h"
+	<cmath>
+
+1747465286 e:\ltnc2\game_project\coin.h
+	<bits/stdc++.h>
+	"SDL2/SDL.h"
+	"SDL_ttf.h"
+	"variable.h"
+
+1747558050 e:\ltnc2\game_project\luckybox.h
+	<cmath>
+	"SDL2/SDL.h"
+	"defs.h"
+
+1747676490 e:\ltnc2\game_project\shop.h
+	"graphics.h"
+	"variable.h"
+
+1747727258 e:\ltnc2\game_project\highscore.h
+	<bits/stdc++.h>
+	"variable.h"
+	"graphics.h"
+
+1747757171 e:\ltnc2\game_project\tutorial.h
+	<bits/stdc++.h>
+	"graphics.h"
+
+1747678398 source:e:\ltnc2\game_project\sdl_icus\main.cpp
+	<iostream>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	"graphics.h"
+	"defs.h"
+	"handle.h"
+	"entities.h"
+	"game.h"
+	"menu.h"
+	"coin.h"
+	"shop.h"
+
+1747590275 e:\ltnc2\game_project\sdl_icus\graphics.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"defs.h"
+	<bits/stdc++.h>
+	"SDL_ttf.h"
+
+1747756637 e:\ltnc2\game_project\sdl_icus\defs.h
+
+1747564614 e:\ltnc2\game_project\sdl_icus\handle.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"entities.h"
+	<bits/stdc++.h>
+	"variable.h"
+
+1747556857 e:\ltnc2\game_project\sdl_icus\entities.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	<bits/stdc++.h>
+
+1747669655 e:\ltnc2\game_project\sdl_icus\variable.h
+	"graphics.h"
+	"defs.h"
+	<bits/stdc++.h>
+	"SDL2/SDL.h"
+	"SDL_ttf.h"
+	"SDL2/SDL_image.h"
+	"entities.h"
+	"shockwave.h"
+	"luckybox.h"
+
+1747394672 e:\ltnc2\game_project\sdl_icus\shockwave.h
+	"graphics.h"
+	"entities.h"
+	<cmath>
+
+1747558050 e:\ltnc2\game_project\sdl_icus\luckybox.h
+	<cmath>
+	"SDL2/SDL.h"
+	"defs.h"
+
+1747681309 e:\ltnc2\game_project\sdl_icus\game.h
+	"SDL2/SDL.h"
+	<bits/stdc++.h>
+	"SDL2/SDL_image.h"
+	"entities.h"
+	"defs.h"
+	"variable.h"
+	"coin.h"
+	"shockwave.h"
+	"shop.h"
+	"highscore.h"
+
+1747465286 e:\ltnc2\game_project\sdl_icus\coin.h
+	<bits/stdc++.h>
+	"SDL2/SDL.h"
+	"SDL_ttf.h"
+	"variable.h"
+
+1747676490 e:\ltnc2\game_project\sdl_icus\shop.h
+	"graphics.h"
+	"variable.h"
+
+1747727258 e:\ltnc2\game_project\sdl_icus\highscore.h
+	<bits/stdc++.h>
+	"variable.h"
+	"graphics.h"
+
+1747756759 e:\ltnc2\game_project\sdl_icus\menu.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"defs.h"
+	<bits/stdc++.h>
+	"SDL_ttf.h"
+	"variable.h"
+	"shop.h"
+	"highscore.h"
+	"tutorial.h"
+
+1747757171 e:\ltnc2\game_project\sdl_icus\tutorial.h
+	<bits/stdc++.h>
+	"graphics.h"
+
