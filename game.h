@@ -11,6 +11,7 @@
 #include "shockwave.h"
 #include "shop.h"
 #include "highscore.h"
+#include "graphics.h"
 
 using namespace std;
 
@@ -83,8 +84,8 @@ void spawnLuckyBox() {
 }
 
 void renderInfomation() {
-    graphics.loadFont("DroplineRegular-Wpegz.otf", 24);
-    SDL_Color color = {255, 255, 0, 0};
+    graphics.loadFont("Playthings.ttf", 24);
+    SDL_Color color = {255, 255, 255, 0};
     string curText = "Kills " + numberToText(kills);
     SDL_Texture *text = graphics.renderText(curText.c_str(), color);
     graphics.renderTexture(text, 10, 10, 1);
@@ -126,10 +127,10 @@ void renderInfomation() {
         checkActiveEffect.insert(x);
     }
 
-    graphics.loadFont("DroplineRegular-Wpegz.otf", 24);
-    SDL_Texture* wayOut = graphics.renderText("Press ESC to exit", {255, 215, 0, 255});
-    graphics.renderTexture(wayOut, 10, 650, 1);
-    SDL_DestroyTexture(wayOut);
+//    graphics.loadFont("DroplineRegular-Wpegz.otf", 24);
+//    SDL_Texture* wayOut = graphics.renderText("Press ESC to exit", {255, 215, 0, 255});
+//    graphics.renderTexture(wayOut, 10, 650, 1);
+//    SDL_DestroyTexture(wayOut);
 
     SDL_DestroyTexture(text);
     SDL_DestroyTexture(curCoins);
@@ -240,6 +241,7 @@ void gamePlay() {
                 if (curBullet.x != 0 && cntBullets > 0) {
                     cntBullets--;
                     bullets.push_back(curBullet);
+                    graphics.play(effectShoot);
                 }
             }
 
@@ -269,6 +271,32 @@ void gamePlay() {
 }
 
 void gameOut() {
+    SDL_ShowCursor(1);
+
+    SDL_Color color = {255, 255, 255, 0};
+    graphics.prepareScene(menuBackground.texture);
+    graphics.loadFont("Playthings.ttf", 72);
+    SDL_Texture* titleTex = graphics.renderText("GAME OVER", color);
+    SDL_Rect titleRect; SDL_QueryTexture(titleTex, nullptr, nullptr, &titleRect.w, &titleRect.h);
+    titleRect.x = (SCREEN_WIDTH - titleRect.w)/2;
+    titleRect.y = 100;
+    SDL_RenderCopy(graphics.renderer, titleTex, nullptr, &titleRect);
+    SDL_DestroyTexture(titleTex);
+
+    graphics.loadFont("Playthings.ttf", 36);
+    string finalScore = "Your score: " + to_string(kills);
+    SDL_Texture* score = graphics.renderText(finalScore.c_str(), color);
+    SDL_Rect scoreRect; SDL_QueryTexture(score, nullptr, nullptr, &scoreRect.w, &scoreRect.h);
+    scoreRect.x = (SCREEN_WIDTH - scoreRect.w)/2;
+    scoreRect.y = 230;
+    SDL_RenderCopy(graphics.renderer, score, nullptr, &scoreRect);
+    SDL_DestroyTexture(score);
+
+    graphics.presentScene();
+
+    graphics.play(effectGameOver);
+    SDL_Delay(3380);
+
     saveNewDataOfCoin();
     saveNewScore();
     SDL_DestroyTexture( tank.body );
@@ -278,7 +306,6 @@ void gameOut() {
     for (LuckyBox x : luckyBoxs)
         SDL_DestroyTexture(x.texture);
     cooldownEffects.clear();
-    SDL_ShowCursor(1);
 }
 
 #endif // _GAME__H

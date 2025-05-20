@@ -16,8 +16,11 @@ int main(int argc, char *argv[])
 {
     graphics.init();
     getNumberOfCoin();
+    loadAllSound();
     initShop();
     background.setTexture(graphics.loadTexture(BACKGROUND_IMG));
+
+    graphics.play(backgroundMusic);
 
     initMenu();
     menu();

@@ -12,8 +12,8 @@ vector <int> listScore;
 void renderListHighScore() {
     graphics.prepareScene(menuBackground.texture);
 
-    graphics.loadFont("DroplineRegular-Wpegz.otf", 48);
-    SDL_Texture* titleTex = graphics.renderText("RANK", {255, 215, 0, 255});
+    graphics.loadFont("Playthings.ttf", 48);
+    SDL_Texture* titleTex = graphics.renderText("RANK", {255, 255, 255, 255});
     SDL_Rect titleRect; SDL_QueryTexture(titleTex, nullptr, nullptr, &titleRect.w, &titleRect.h);
     titleRect.x = (SCREEN_WIDTH - titleRect.w)/2;
     titleRect.y = 80;
@@ -22,7 +22,7 @@ void renderListHighScore() {
 
     for (int i = 0; i < listScore.size(); i++) {
         string cur = "Top " + to_string(i + 1) + ": " + to_string(listScore[i]);
-        SDL_Texture* scoreTex = graphics.renderText(cur.c_str(), {255, 215, 0, 255});
+        SDL_Texture* scoreTex = graphics.renderText(cur.c_str(), {255, 255, 255, 255});
         SDL_Rect scoreRect; SDL_QueryTexture(scoreTex, nullptr, nullptr, &scoreRect.w, &scoreRect.h);
         scoreRect.x = (SCREEN_WIDTH - scoreRect.w)/2;
         scoreRect.y = baseY + i * 50;
@@ -32,7 +32,7 @@ void renderListHighScore() {
 
 void highScoreInit() {
     ifstream inp("highscore.txt");
-    int score, idx = 1;
+    int score;
     listScore.clear();
     while (inp >> score)
         listScore.push_back(score);
@@ -57,11 +57,19 @@ void highScoreLoop() {
 }
 
 void saveNewScore() {
-    ofstream out("highscore.txt");
+    listScore.clear();
+    ifstream inp("highscore.txt");
+    int score;
+    while (inp >> score)
+        listScore.push_back(score);
+    inp.close();
+
     listScore.push_back(kills);
+    ofstream out("highscore.txt");
     sort (listScore.rbegin(), listScore.rend());
 
-    listScore.pop_back();
+    if (listScore.size() > 5)
+        listScore.pop_back();
 
     for (int x : listScore)
         out << x << " ";

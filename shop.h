@@ -22,8 +22,8 @@ bool buyHovered = false;
 
 void initShop() {
     shopItems.clear();
-    shopItems.push_back({"Piercing", 000, graphics.loadTexture(SKILL1), {220, 250, 96, 96}, false});
-    shopItems.push_back({"Shock Wave", 000, graphics.loadTexture(SKILL2), {220, 380, 96, 96}, false});
+    shopItems.push_back({"Piercing", 1000, graphics.loadTexture(SKILL1), {220, 250, 96, 96}, false});
+    shopItems.push_back({"Shock Wave", 1500, graphics.loadTexture(SKILL2), {220, 380, 96, 96}, false});
 
     ifstream inp("shopbought.txt");
     for (int i = 0; i < 2; i++)
@@ -31,21 +31,32 @@ void initShop() {
     inp.close();
 }
 
+int preSelectedItem = -1;
+
 void renderShop() {
     graphics.prepareScene(menuBackground.texture);
 
-    graphics.loadFont("DroplineRegular-Wpegz.otf", 48);
-    SDL_Texture* titleTex = graphics.renderText("SHOP", {255, 215, 0, 255});
+    SDL_Color color = {255, 255, 255, 0};
+
+    graphics.loadFont("Playthings.ttf", 48);
+    SDL_Texture* titleTex = graphics.renderText("SHOP", color);
     SDL_Rect titleRect; SDL_QueryTexture(titleTex, nullptr, nullptr, &titleRect.w, &titleRect.h);
     titleRect.x = (SCREEN_WIDTH - titleRect.w)/2;
     titleRect.y = 80;
     SDL_RenderCopy(graphics.renderer, titleTex, nullptr, &titleRect);
     SDL_DestroyTexture(titleTex);
 
-    graphics.loadFont("DroplineRegular-Wpegz.otf", 24);
-    SDL_Texture* wayOut = graphics.renderText("Press ESC to exit", {255, 215, 0, 255});
-    graphics.renderTexture(wayOut, 10, 650, 1);
-    SDL_DestroyTexture(wayOut);
+    SDL_Texture *curCoins = graphics.renderText(("Coins: " + to_string(coins)).c_str(), color);
+    graphics.renderTexture(curCoins, 10, 10, 1);
+    SDL_DestroyTexture(curCoins);
+
+//    graphics.loadFont("DroplineRegular-Wpegz.otf", 24);
+//    SDL_Texture* wayOut = graphics.renderText("Press ESC to exit", {255, 215, 0, 255});
+//    graphics.renderTexture(wayOut, 10, 650, 1);
+//    SDL_DestroyTexture(wayOut);
+
+    if (shopSelected == -1)
+        preSelectedItem = -1;
 
     for (int i = 0; i < shopItems.size(); ++i) {
         if (shopSelected == i) {
@@ -53,6 +64,10 @@ void renderShop() {
             SDL_Rect hl = shopItems[i].rect;
             hl.x -= 8; hl.y -= 8; hl.w += 16; hl.h += 16;
             SDL_RenderDrawRect(graphics.renderer, &hl);
+            if (preSelectedItem != shopSelected) {
+                preSelectedItem = shopSelected;
+                graphics.play(effectHover);
+            }
         }
         if (shopClicked == i) {
             SDL_SetRenderDrawColor(graphics.renderer, 0, 255, 255, 255);
@@ -64,7 +79,7 @@ void renderShop() {
         SDL_RenderCopy(graphics.renderer, shopItems[i].texture, nullptr, &shopItems[i].rect);
 
         if (shopItems[i].bought) {
-            graphics.loadFont("DroplineRegular-Wpegz.otf", 32);
+            graphics.loadFont("Playthings.ttf", 32);
             SDL_Texture* boughtTex = graphics.renderText("Bought", {0,255,0,255});
             SDL_Rect br; SDL_QueryTexture(boughtTex, nullptr, nullptr, &br.w, &br.h);
             br.x = shopItems[i].rect.x + shopItems[i].rect.w + 24;
@@ -74,9 +89,9 @@ void renderShop() {
         }
     }
 
-    graphics.loadFont("DroplineRegular-Wpegz.otf", 24);
-    SDL_Texture* infoSkill_1 = graphics.renderText("Piercing (passive): 1000 coins", {255, 215, 0, 255});
-    SDL_Texture* infoSkill_2 = graphics.renderText("Shock Wave (active): 1500 coins", {255, 215, 0, 255});
+    graphics.loadFont("Playthings.ttf", 24);
+    SDL_Texture* infoSkill_1 = graphics.renderText("Piercing (passive): 1000 coins", color);
+    SDL_Texture* infoSkill_2 = graphics.renderText("Shock Wave (active): 1500 coins", color);
     graphics.renderTexture(infoSkill_1, 340, 260, 1);
     graphics.renderTexture(infoSkill_2, 340, 390, 1);
 
@@ -86,7 +101,7 @@ void renderShop() {
             SDL_SetRenderDrawColor(graphics.renderer, buyHovered && coins >= item.price ? 255 : 180, 255, buyHovered && coins >= item.price ? 0 : 180, 255);
             SDL_RenderFillRect(graphics.renderer, &buyRect);
 
-            graphics.loadFont("DroplineRegular-Wpegz.otf", 36);
+            graphics.loadFont("Playthings.ttf", 36);
             SDL_Texture* buyTex = graphics.renderText("Buy", {0, 0, 0, 255});
             SDL_Rect br; SDL_QueryTexture(buyTex, nullptr, nullptr, &br.w, &br.h);
             br.x = buyRect.x + (buyRect.w - br.w)/2;
@@ -97,7 +112,7 @@ void renderShop() {
         else {
             SDL_SetRenderDrawColor(graphics.renderer, 150, 255, 150, 255);
             SDL_RenderFillRect(graphics.renderer, &buyRect);
-            graphics.loadFont("DroplineRegular-Wpegz.otf", 36);
+            graphics.loadFont("Playthings.ttf", 36);
             SDL_Texture* boughtTex = graphics.renderText("Bought", {0, 100, 0, 255});
             SDL_Rect br; SDL_QueryTexture(boughtTex, nullptr, nullptr, &br.w, &br.h);
             br.x = buyRect.x + (buyRect.w - br.w)/2;
@@ -151,6 +166,7 @@ void shopLoop() {
                     coins >= shopItems[shopClicked].price) {
                     coins -= shopItems[shopClicked].price;
                     shopItems[shopClicked].bought = true;
+                    graphics.play(effectBuy);
                 }
 
                 else if (!clickedSkill && !(

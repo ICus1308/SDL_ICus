@@ -10,6 +10,7 @@
 #include "shop.h"
 #include "highscore.h"
 #include "tutorial.h"
+#include "music.h"
 
 using namespace std;
 
@@ -27,9 +28,10 @@ const vector <string> menuItems = {
 
 void initMenu() {
     menuBackground.setTexture(graphics.loadTexture(MENUBACKGROUND));
+//    SDL_SetCursor(customCursorPointer);
 
-    graphics.loadFont("DroplineRegular-Wpegz.otf", 48);
-    SDL_Color color = { 0, 0, 0, 255 };
+    graphics.loadFont("Playthings.ttf", 48);
+    SDL_Color color = { 255, 255, 255, 255 };
 
     for (size_t i = 0; i < menuItems.size(); ++i) {
         SDL_Texture *tex = graphics.renderText(menuItems[i].c_str(), color);
@@ -43,7 +45,7 @@ void initMenu() {
         rects.push_back(dst);
     }
 
-    graphics.loadFont("CaliforniaPersonalUseRegular-L37ED.ttf", 72);
+    graphics.loadFont("old_stamper.ttf", 72);
     SDL_Texture *text = graphics.renderText(title.c_str(), color);
 
     SDL_Rect dst;
@@ -55,7 +57,11 @@ void initMenu() {
     rects.push_back(dst);
 }
 
+int preSelectedShop = -1;
+
 void renderOptions() {
+    if (selectedItem == 4)
+        preSelectedShop = -1;
     for (size_t i = 0; i < 4; ++i) {
         if (int(i) == selectedItem) {
             SDL_SetRenderDrawColor(graphics.renderer, 255, 255, 0, 255);
@@ -64,6 +70,11 @@ void renderOptions() {
                 rects[i].w + 20, rects[i].h + 10
             };
             SDL_RenderDrawRect(graphics.renderer, &highlight);
+//            SDL_SetCursor(customCursorHover);
+            if (preSelectedShop != selectedItem) {
+                preSelectedShop = selectedItem;
+                graphics.play(effectHover);
+            }
         }
         SDL_RenderCopy(graphics.renderer, textures[i], nullptr, &rects[i]);
     }
@@ -129,6 +140,10 @@ void menu() {
 }
 
 void menuOut() {
+    SDL_FreeCursor(customCursorPointer);
+    SDL_FreeCursor(customCursorHover);
+    SDL_FreeSurface(cursorPointer);
+    SDL_FreeSurface(cursorHover);
     for (auto tex : textures) SDL_DestroyTexture(tex);
 }
 

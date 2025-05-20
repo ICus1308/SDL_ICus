@@ -75,6 +75,7 @@ void handleBulletCollision(int checkPiercing) {
                 bullets[i].x <= zombies[j].xZombie + zombies[j].width &&
                 zombies[j].yZombie <= bullets[i].y &&
                 bullets[i].y <= zombies[j].yZombie + zombies[j].height) {
+                    graphics.play(effectZombieDie);
                     SDL_DestroyTexture(zombies[j].texture);
                     if (x2Score) kills += 2; else kills++;
                     if (x2Money) coins += 2; else coins++;
@@ -112,6 +113,7 @@ void handleBulletCollision(int checkPiercing) {
                 lb.y <= bullet.y &&
                 bullet.y <= lb.y + 48) {
                     lb.alive = false;
+                    graphics.play(effectHover);
                     int option = lb.effect;
                     if (option < 2 && checkActiveEffect.find(option) == checkActiveEffect.end()) {
                         cooldownEffects.push_back(option);
@@ -129,6 +131,7 @@ void handleWaveCollision() {
         for (size_t i = 0; i < zombies.size(); i++) {
             if (sw.hits(zombies[i])) {
                 SDL_DestroyTexture(zombies[i].texture);
+                graphics.play(effectZombieDie);
                 if (x2Score) kills += 2; else kills++;
                 if (x2Money) coins += 2; else coins++;
             } else

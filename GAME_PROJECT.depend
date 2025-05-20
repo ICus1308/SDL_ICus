@@ -100,7 +100,7 @@
 	<bits/stdc++.h>
 	"graphics.h"
 
-1747678398 source:e:\ltnc2\game_project\sdl_icus\main.cpp
+1747781928 source:e:\ltnc2\game_project\sdl_icus\main.cpp
 	<iostream>
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -113,16 +113,17 @@
 	"coin.h"
 	"shop.h"
 
-1747590275 e:\ltnc2\game_project\sdl_icus\graphics.h
+1747775388 e:\ltnc2\game_project\sdl_icus\graphics.h
 	"SDL2/SDL.h"
 	"SDL2/SDL_image.h"
 	"defs.h"
 	<bits/stdc++.h>
 	"SDL_ttf.h"
+	"SDL_mixer.h"
 
 1747756637 e:\ltnc2\game_project\sdl_icus\defs.h
 
-1747564614 e:\ltnc2\game_project\sdl_icus\handle.h
+1747776050 e:\ltnc2\game_project\sdl_icus\handle.h
 	"SDL2/SDL.h"
 	<SDL2/SDL_image.h>
 	"defs.h"
@@ -138,7 +139,7 @@
 	"graphics.h"
 	<bits/stdc++.h>
 
-1747669655 e:\ltnc2\game_project\sdl_icus\variable.h
+1747781892 e:\ltnc2\game_project\sdl_icus\variable.h
 	"graphics.h"
 	"defs.h"
 	<bits/stdc++.h>
@@ -148,6 +149,7 @@
 	"entities.h"
 	"shockwave.h"
 	"luckybox.h"
+	"SDL_mixer.h"
 
 1747394672 e:\ltnc2\game_project\sdl_icus\shockwave.h
 	"graphics.h"
@@ -159,7 +161,7 @@
 	"SDL2/SDL.h"
 	"defs.h"
 
-1747681309 e:\ltnc2\game_project\sdl_icus\game.h
+1747778317 e:\ltnc2\game_project\sdl_icus\game.h
 	"SDL2/SDL.h"
 	<bits/stdc++.h>
 	"SDL2/SDL_image.h"
@@ -170,6 +172,7 @@
 	"shockwave.h"
 	"shop.h"
 	"highscore.h"
+	"graphics.h"
 
 1747465286 e:\ltnc2\game_project\sdl_icus\coin.h
 	<bits/stdc++.h>
@@ -177,16 +180,16 @@
 	"SDL_ttf.h"
 	"variable.h"
 
-1747676490 e:\ltnc2\game_project\sdl_icus\shop.h
+1747782289 e:\ltnc2\game_project\sdl_icus\shop.h
 	"graphics.h"
 	"variable.h"
 
-1747727258 e:\ltnc2\game_project\sdl_icus\highscore.h
+1747768908 e:\ltnc2\game_project\sdl_icus\highscore.h
 	<bits/stdc++.h>
 	"variable.h"
 	"graphics.h"
 
-1747756759 e:\ltnc2\game_project\sdl_icus\menu.h
+1747782026 e:\ltnc2\game_project\sdl_icus\menu.h
 	"SDL2/SDL.h"
 	"SDL2/SDL_image.h"
 	"defs.h"
@@ -196,8 +199,15 @@
 	"shop.h"
 	"highscore.h"
 	"tutorial.h"
+	"music.h"
 
 1747757171 e:\ltnc2\game_project\sdl_icus\tutorial.h
 	<bits/stdc++.h>
 	"graphics.h"
+
+1747777993 e:\ltnc2\game_project\sdl_icus\music.h
+	<bits/stdc++.h>
+	"SDL_mixer.h"
+	"graphics.h"
+	"variable.h"
 
