@@ -88,6 +88,7 @@ Người chơi có thể xem được **5 điểm** cao nhất.
 - Tham khảo Code mẫu trên [Lazy Foo' Productions](https://lazyfoo.net/tutorials/SDL/index.php).
 - Tham khảo Code mẫu trên [File tài liệu do giảng viên cung cấp](https://lazyfoo.net/tutorials/SDL/index.php).
 - Tham khảo Code mẫu trên [trang chính thức của SDL2](https://www.libsdl.org/).
-- Một số hình ảnh được lấy từ [itch.io](https://itch.io/). 
-- hiệu ứng âm thanh được từ [Pixabay](https://pixabay.com) và [Myinstants](https://www.myinstants.com/fr/index/vn/). 
+- Một số hình ảnh được lấy từ [itch.io](https://itch.io/) và Sora (Chat GPT). 
+- hiệu ứng âm thanh được từ [Pixabay](https://pixabay.com) và [Myinstants](https://www.myinstants.com/fr/index/vn/).
+
 Ngoài ra, không sử dụng code ở những nguồn không được liệt kê ở trên
