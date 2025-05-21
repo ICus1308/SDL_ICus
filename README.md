@@ -29,6 +29,8 @@ Game sử dụng thuật toán sinh bản sao từ hình ảnh zombie gốc.
 - Để tạo cho game cảm giác trân thật khi đang di chuyển trên đường bằng áp dụng vật lí.
 - Ứng dụng hình học nhằm tìm ra khoảng cách đi đến xe tăng gần nhất của zombie.
 
+---
+
 ### 3. Nâng cấp đa dạng
 Có toàn bộ **3 loại hiệu ứng** cho người chơi, được sinh ngẫu nhiên trong trận đấu. Các loại nâng cấp: 
 
@@ -36,15 +38,21 @@ Có toàn bộ **3 loại hiệu ứng** cho người chơi, được sinh ngẫ
 - Số tiền nhận được tăng lên gấp 2 lần.
 - Spawn 1 bầy gồm 5 con zombie tại vị trí ngẫu nhiên.
 
+---
+
 ### 4. Thuật toán vẽ đường tròn (Midpoint Circle Algorithm)
 
 Bằng cách chia hình tròn sẽ được vẽ ra làm 2 phần bằng nhau ở các góc phần tư và lần lượt lấy các điểm trong 8 cung tròn đó để vẽ tạo thành đường tròn.
 - **Link tìm hiểu:** [Midpoint Circle Algorithm](https://en.wikipedia.org/wiki/Midpoint_circle_algorithm).
 
+---
+
 ### 5. Hệ thống Animation đa dạng 
 
 - **Hiệu ứng quay trục súng:** Dễ dàng kiểm soát, điều khiển. Hình ảnh chuyển động mượt mà.
 - **Hiệu ứng cuộn vô hạn của Background:** Tạo cảm giác không gian rộng mở và chuyển động liền mạch trong suốt quá trình chơi.
+
+---
   
 ### 6. Hệ thống Âm thanh 
 
@@ -53,12 +61,16 @@ Bằng cách chia hình tròn sẽ được vẽ ra làm 2 phần bằng nhau �
 - Âm thanh cho người chơi nhận nâng cấp
 - Âm thanh bị quái vật va trúng
 
+---
+
 ### 7. Chức năng Lưu bảng điểm xếp hạng (Highscore). 
 
 **Lưu trữ thông tin Highscore trong file**: `highscore.txt`.  
 _Sau khi hoàn thành lượt chơi_, kết quả sẽ được ghi vào file.
 
 Người chơi có thể xem được **5 điểm** cao nhất.
+
+---
 
 ### 8. Chức năng Tiền, Cửa hàng và Chiêu thức bổ trợ (Skill)
 
